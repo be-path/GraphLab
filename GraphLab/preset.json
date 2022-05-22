@@ -2,7 +2,7 @@
   "preset_info": {
     "version": 11,
     "title": "GraphLab",
-    "description": "実験的なグラフの壁紙です",
+    "description": "",
     "author": "Nal",
     "width": 540,
     "height": 1200,
@@ -21,21 +21,21 @@
     },
     "globals_list": {
       "tbatmax": {
-        "index": 13,
+        "index": 14,
         "type": "TEXT",
         "title": "tBatMax",
         "value": "$mu(max, bi(level, r0m), bi(level, r5m), bi(level, r10m), bi(level, r10m), bi(level, r15m), bi(level, r20m), bi(level, r25m), bi(level, r30m), bi(level, r35m), bi(level, r40m), bi(level, r45m), bi(level, r50m), bi(level, r55m), bi(level, r60m))$",
         "toggles": 1
       },
       "tdaynum": {
-        "index": 14,
+        "index": 15,
         "type": "TEXT",
         "title": "tDayNum",
         "value": "$if(df(M)=2&(df(y)%4=0&df(y)%100!=0|df(y)%400=0),29,df(M)=2,28,df(M)=4|df(M)=6|df(M)=9|df(M)=11,30,31)$",
         "toggles": 1
       },
       "ncsize": {
-        "index": 8,
+        "index": 9,
         "type": "NUMBER",
         "title": "nCSize",
         "value": 30.0,
@@ -44,7 +44,7 @@
         "toggles": 1
       },
       "ncbwidth": {
-        "index": 9,
+        "index": 10,
         "type": "NUMBER",
         "title": "nCBWidth",
         "value": 4.0,
@@ -53,7 +53,7 @@
         "toggles": 1
       },
       "ncbgap": {
-        "index": 10,
+        "index": 11,
         "type": "NUMBER",
         "title": "nCBGap",
         "value": 4.0,
@@ -65,66 +65,66 @@
         "index": 5,
         "type": "COLOR",
         "title": "cBase",
-        "value": "#FFFFFFFF"
+        "description": "ベース色"
       },
       "cback": {
         "index": 6,
         "type": "COLOR",
         "title": "cBack",
-        "value": "#FF333333"
+        "description": "背景色"
       },
       "ndatamax": {
         "index": 7,
         "type": "NUMBER",
         "title": "nDataMax",
+        "description": "月々の通信量上限 (GB)",
         "min": 1,
-        "max": 1000,
-        "value": 20.0
+        "max": 1000
       },
       "tdatar": {
-        "index": 16,
+        "index": 17,
         "type": "TEXT",
         "title": "tDataR",
         "value": "$ts(mt, m, 1d)/gv(ndatamax)/1000*100$",
         "toggles": 1
       },
       "tdater": {
-        "index": 17,
+        "index": 18,
         "type": "TEXT",
         "title": "tDateR",
         "value": "$df(d)/gv(tdaynum)*100$",
         "toggles": 1
       },
       "tmemr": {
-        "index": 19,
+        "index": 20,
         "type": "TEXT",
         "title": "tMemR",
         "value": "$rm(mfree) / rm(mtot) * 100$",
         "toggles": 1
       },
       "tstrgr": {
-        "index": 20,
+        "index": 21,
         "type": "TEXT",
         "title": "tStrgR",
         "value": "$rm(fsfree, int) / rm(fstot, int) * 100$",
         "toggles": 1
       },
       "cbaset": {
-        "index": 15,
+        "index": 16,
         "type": "COLOR",
         "title": "cBaseT",
         "global_formula": "$ce(gv(cbase),alpha, 15)$",
         "toggles": 11
       },
       "tipbit": {
-        "index": 21,
+        "index": 22,
         "type": "TEXT",
         "title": "tIPBit",
         "value": "$mu(floor, tc(split, nc(ifip), \".\", si(mindex, 1))/mu(pow, 2, si(mcount) - si(mindex) - 1))%2$",
         "toggles": 1
       },
       "ndaylen": {
-        "index": 11,
+        "index": 12,
         "type": "NUMBER",
         "title": "nDayLen",
         "value": 280.0,
@@ -133,7 +133,7 @@
         "toggles": 1
       },
       "nnowsize": {
-        "index": 12,
+        "index": 13,
         "type": "NUMBER",
         "title": "nNowSize",
         "value": 8.0,
@@ -142,21 +142,21 @@
         "toggles": 1
       },
       "ttimer": {
-        "index": 18,
+        "index": 19,
         "type": "TEXT",
         "title": "tTimeR",
         "value": "$(1-(df(h)*60*60+df(m)*60+df(s))/(24*60*60))*100$",
         "toggles": 1
       },
       "tdatarh": {
-        "index": 22,
+        "index": 23,
         "type": "TEXT",
         "title": "tDataRH",
         "value": "$(ts(mt, m, 1d) - ts(mt, m, r1w))/gv(ndatamax)/1000*100$",
         "toggles": 1
       },
       "cnull": {
-        "index": 23,
+        "index": 24,
         "type": "COLOR",
         "title": "cNull",
         "value": "#00000000",
@@ -166,21 +166,21 @@
         "index": 1,
         "type": "COLOR",
         "title": "cTop",
-        "value": "#FFFFFFFF"
+        "description": "全体のグラデーション色（上側）"
       },
       "cbottom": {
         "index": 2,
         "type": "COLOR",
         "title": "cBottom",
-        "value": "#FFFFFFFF"
+        "description": "全体のグラデーション色（下側）"
       },
       "nbatint": {
-        "index": 24,
+        "index": 8,
         "type": "NUMBER",
         "title": "nBatInt",
+        "description": "バッテリー充電中インジケーターの点滅時間間隔",
         "min": 1,
-        "max": 1000,
-        "value": 40.0
+        "max": 1000
       }
     },
     "viewgroup_items": [
