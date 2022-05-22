@@ -1,0 +1,3346 @@
+{
+  "preset_info": {
+    "version": 11,
+    "title": "GraphLab",
+    "description": "実験的なグラフの壁紙です",
+    "author": "Nal",
+    "width": 540,
+    "height": 1200,
+    "features": "ANALOG_CLOCK MUSIC TRAFFIC NOTIFICATIONS",
+    "release": 357121814,
+    "locked": false,
+    "pflags": 0
+  },
+  "preset_root": {
+    "internal_type": "RootLayerModule",
+    "internal_toggles": {
+      "background_color": 100
+    },
+    "internal_globals": {
+      "background_color": "cback"
+    },
+    "globals_list": {
+      "tbatmax": {
+        "index": 13,
+        "type": "TEXT",
+        "title": "tBatMax",
+        "value": "$mu(max, bi(level, r0m), bi(level, r5m), bi(level, r10m), bi(level, r10m), bi(level, r15m), bi(level, r20m), bi(level, r25m), bi(level, r30m), bi(level, r35m), bi(level, r40m), bi(level, r45m), bi(level, r50m), bi(level, r55m), bi(level, r60m))$",
+        "toggles": 1
+      },
+      "tdaynum": {
+        "index": 14,
+        "type": "TEXT",
+        "title": "tDayNum",
+        "value": "$if(df(M)=2&(df(y)%4=0&df(y)%100!=0|df(y)%400=0),29,df(M)=2,28,df(M)=4|df(M)=6|df(M)=9|df(M)=11,30,31)$",
+        "toggles": 1
+      },
+      "ncsize": {
+        "index": 8,
+        "type": "NUMBER",
+        "title": "nCSize",
+        "value": 30.0,
+        "min": 1,
+        "max": 100,
+        "toggles": 1
+      },
+      "ncbwidth": {
+        "index": 9,
+        "type": "NUMBER",
+        "title": "nCBWidth",
+        "value": 4.0,
+        "min": 1,
+        "max": 100,
+        "toggles": 1
+      },
+      "ncbgap": {
+        "index": 10,
+        "type": "NUMBER",
+        "title": "nCBGap",
+        "value": 4.0,
+        "min": 0,
+        "max": 100,
+        "toggles": 1
+      },
+      "cbase": {
+        "index": 5,
+        "type": "COLOR",
+        "title": "cBase",
+        "value": "#FFFFFFFF"
+      },
+      "cback": {
+        "index": 6,
+        "type": "COLOR",
+        "title": "cBack",
+        "value": "#FF333333"
+      },
+      "ndatamax": {
+        "index": 7,
+        "type": "NUMBER",
+        "title": "nDataMax",
+        "min": 1,
+        "max": 1000,
+        "value": 20.0
+      },
+      "tdatar": {
+        "index": 16,
+        "type": "TEXT",
+        "title": "tDataR",
+        "value": "$ts(mt, m, 1d)/gv(ndatamax)/1000*100$",
+        "toggles": 1
+      },
+      "tdater": {
+        "index": 17,
+        "type": "TEXT",
+        "title": "tDateR",
+        "value": "$df(d)/gv(tdaynum)*100$",
+        "toggles": 1
+      },
+      "tmemr": {
+        "index": 19,
+        "type": "TEXT",
+        "title": "tMemR",
+        "value": "$rm(mfree) / rm(mtot) * 100$",
+        "toggles": 1
+      },
+      "tstrgr": {
+        "index": 20,
+        "type": "TEXT",
+        "title": "tStrgR",
+        "value": "$rm(fsfree, int) / rm(fstot, int) * 100$",
+        "toggles": 1
+      },
+      "cbaset": {
+        "index": 15,
+        "type": "COLOR",
+        "title": "cBaseT",
+        "global_formula": "$ce(gv(cbase),alpha, 15)$",
+        "toggles": 11
+      },
+      "tipbit": {
+        "index": 21,
+        "type": "TEXT",
+        "title": "tIPBit",
+        "value": "$mu(floor, tc(split, nc(ifip), \".\", si(mindex, 1))/mu(pow, 2, si(mcount) - si(mindex) - 1))%2$",
+        "toggles": 1
+      },
+      "ndaylen": {
+        "index": 11,
+        "type": "NUMBER",
+        "title": "nDayLen",
+        "value": 280.0,
+        "min": 1,
+        "max": 1000,
+        "toggles": 1
+      },
+      "nnowsize": {
+        "index": 12,
+        "type": "NUMBER",
+        "title": "nNowSize",
+        "value": 8.0,
+        "min": 1,
+        "max": 100,
+        "toggles": 1
+      },
+      "ttimer": {
+        "index": 18,
+        "type": "TEXT",
+        "title": "tTimeR",
+        "value": "$(1-(df(h)*60*60+df(m)*60+df(s))/(24*60*60))*100$",
+        "toggles": 1
+      },
+      "tdatarh": {
+        "index": 22,
+        "type": "TEXT",
+        "title": "tDataRH",
+        "value": "$(ts(mt, m, 1d) - ts(mt, m, r1w))/gv(ndatamax)/1000*100$",
+        "toggles": 1
+      },
+      "cnull": {
+        "index": 23,
+        "type": "COLOR",
+        "title": "cNull",
+        "value": "#00000000",
+        "toggles": 1
+      },
+      "ctop": {
+        "index": 1,
+        "type": "COLOR",
+        "title": "cTop",
+        "value": "#FFFFFFFF"
+      },
+      "cbottom": {
+        "index": 2,
+        "type": "COLOR",
+        "title": "cBottom",
+        "value": "#FFFFFFFF"
+      },
+      "nbatint": {
+        "index": 24,
+        "type": "NUMBER",
+        "title": "nBatInt",
+        "min": 1,
+        "max": 1000,
+        "value": 40.0
+      }
+    },
+    "viewgroup_items": [
+      {
+        "internal_type": "OverlapLayerModule",
+        "position_anchor": "CENTER",
+        "internal_title": "メイン",
+        "viewgroup_items": [
+          {
+            "internal_type": "StackLayerModule",
+            "config_stacking": "VERTICAL_CENTER",
+            "config_margin": 60.0,
+            "internal_title": "中央",
+            "viewgroup_items": [
+              {
+                "internal_type": "OverlapLayerModule",
+                "internal_title": "通知",
+                "internal_toggles": {
+                  "config_visible": 10
+                },
+                "internal_formulas": {
+                  "config_visible": "$if(ni(count) > 0, ALWAYS, NEVER)$"
+                },
+                "config_rotate_mode": "MANUAL",
+                "config_rotate_offset": 45.0,
+                "viewgroup_items": [
+                  {
+                    "internal_type": "ShapeModule",
+                    "internal_toggles": {
+                      "paint_color": 100
+                    },
+                    "internal_globals": {
+                      "paint_color": "cbase"
+                    }
+                  },
+                  {
+                    "internal_type": "ShapeModule",
+                    "internal_title": "クリア",
+                    "paint_mode": "CLEAR",
+                    "position_padding_left": 8.0,
+                    "position_padding_top": 8.0
+                  }
+                ]
+              },
+              {
+                "internal_type": "OverlapLayerModule",
+                "internal_title": "日付・曜日",
+                "viewgroup_items": [
+                  {
+                    "internal_type": "StackLayerModule",
+                    "internal_title": "日付・曜日",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "internal_toggles": {
+                      "config_margin": 10
+                    },
+                    "internal_formulas": {
+                      "config_margin": "$-gv(ncbwidth)/2$"
+                    },
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "internal_title": "月",
+                        "internal_toggles": {
+                          "config_rotate_mode": 0,
+                          "config_rotate_offset": 0,
+                          "position_padding_right": 10,
+                          "position_padding_left": 10
+                        },
+                        "internal_formulas": {
+                          "config_rotate_offset": "$df(M) * 360/12 - 90$",
+                          "position_padding_right": "$gv(ncsize)/2$",
+                          "position_padding_left": "$gv(ncsize)/2$"
+                        },
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "OverlapLayerModule",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "StackLayerModule",
+                                "config_stacking": "VERTICAL_CENTER",
+                                "config_margin": 4.0,
+                                "viewgroup_items": [
+                                  {
+                                    "internal_type": "StackLayerModule",
+                                    "config_stacking": "HORIZONTAL_CENTER",
+                                    "config_margin": 4.0,
+                                    "viewgroup_items": [
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "internal_type": "StackLayerModule",
+                                    "config_stacking": "HORIZONTAL_CENTER",
+                                    "config_margin": 4.0,
+                                    "viewgroup_items": [
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      },
+                                      {
+                                        "internal_type": "ShapeModule",
+                                        "internal_toggles": {
+                                          "paint_color": 10
+                                        },
+                                        "internal_formulas": {
+                                          "paint_color": "$if(df(M) > si(mindex) + si(mindex, 1)*si(mcount), gv(cbase), gv(cbaset))$"
+                                        },
+                                        "shape_type": "RECT",
+                                        "shape_width": 4.0,
+                                        "shape_height": 12.0,
+                                        "shape_corners": 360
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "internal_title": "1,5,曜日",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "OverlapLayerModule",
+                            "internal_title": "曜日",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100,
+                                  "fx_gradient_color": 100,
+                                  "fx_gradient_offset": 10,
+                                  "shape_rotate_offset": 10
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*9$",
+                                  "fx_gradient_offset": "$100*2/7$",
+                                  "shape_rotate_offset": "$(3/4 - 2/7)*360$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase",
+                                  "fx_gradient_color": "cnull"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（外枠）",
+                                "shape_rotate_mode": "MANUAL",
+                                "shape_rotate_offset": 176,
+                                "fx_gradient": "SWEEP",
+                                "fx_gradient_width": 1,
+                                "fx_gradient_offset": 27
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*8$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（マスク）",
+                                "paint_mode": "CLEAR"
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100,
+                                  "fx_gradient_color": 100,
+                                  "fx_gradient_offset": 10,
+                                  "shape_rotate_offset": 10
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*9$",
+                                  "fx_gradient_offset": "$100/7$",
+                                  "shape_rotate_offset": "$(df(f)/7 - 1/7)*360 + 270$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase",
+                                  "fx_gradient_color": "cnull"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（曜日）",
+                                "shape_rotate_mode": "MANUAL",
+                                "fx_gradient": "SWEEP",
+                                "fx_gradient_width": 1
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_title": "図形（ボーダーと塗りのズレ補間）",
+                                "internal_toggles": {
+                                  "paint_color": 10,
+                                  "shape_width": 10,
+                                  "shape_height": 10
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncbwidth)*4$",
+                                  "paint_color": "$if((df(f) = 7) | (df(f) = 1), gv(cbase), gv(cnull))$",
+                                  "shape_height": "$gv(ncbwidth)/2$"
+                                },
+                                "internal_globals": {
+                                  "paint_color": "cbase"
+                                },
+                                "shape_type": "RECT",
+                                "shape_width": 12.0,
+                                "shape_height": 2.0,
+                                "position_anchor": "CENTERRIGHT"
+                              }
+                            ]
+                          },
+                          {
+                            "internal_type": "OverlapLayerModule",
+                            "internal_title": "1,5",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*4$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（枠）"
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*3$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（マスク）",
+                                "paint_mode": "CLEAR"
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100,
+                                  "fx_gradient_offset": 10,
+                                  "fx_gradient_color": 100
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize) + gv(ncbgap) + gv(ncbwidth)*4$",
+                                  "fx_gradient_offset": "$df(d)%5 * 25$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase",
+                                  "fx_gradient_color": "cnull"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "1",
+                                "shape_rotate_mode": "DEG270",
+                                "fx_gradient": "SWEEP",
+                                "fx_gradient_width": 1
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_toggles": {
+                                  "shape_width": 10,
+                                  "paint_color": 100
+                                },
+                                "internal_formulas": {
+                                  "shape_width": "$gv(ncsize)  + gv(ncbgap)$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize",
+                                  "paint_color": "cbase"
+                                },
+                                "shape_type": "CIRCLE",
+                                "internal_title": "図形（マスク）",
+                                "paint_mode": "CLEAR"
+                              },
+                              {
+                                "internal_type": "ShapeModule",
+                                "internal_title": "5",
+                                "internal_toggles": {
+                                  "shape_width": 100,
+                                  "paint_color": 10
+                                },
+                                "internal_formulas": {
+                                  "paint_color": "$if(mu(floor, df(d)/5)%2, gv(cbase), gv(cnull))$"
+                                },
+                                "internal_globals": {
+                                  "shape_width": "ncsize"
+                                },
+                                "shape_type": "CIRCLE"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "StackLayerModule",
+                        "internal_title": "10",
+                        "config_stacking": "HORIZONTAL_CENTER",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "StackLayerModule",
+                            "config_stacking": "HORIZONTAL_CENTER",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "ShapeModule",
+                                "shape_type": "RECT",
+                                "shape_height": 2.0,
+                                "internal_toggles": {
+                                  "paint_color": 100,
+                                  "shape_height": 10
+                                },
+                                "internal_globals": {
+                                  "paint_color": "cbase",
+                                  "shape_height": "ncbwidth"
+                                },
+                                "internal_formulas": {
+                                  "shape_height": "$gv(ncbwidth)/2$"
+                                }
+                              },
+                              {
+                                "internal_type": "OverlapLayerModule",
+                                "viewgroup_items": [
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap) + gv(ncbwidth)$"
+                                    }
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap)$"
+                                    },
+                                    "paint_mode": "CLEAR"
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 10
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2$",
+                                      "paint_color": "$if(df(d)/10 >= si(mindex, 2)+1, gv(cbase), gv(cnull))$"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "internal_type": "StackLayerModule",
+                            "config_stacking": "HORIZONTAL_CENTER",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "ShapeModule",
+                                "shape_type": "RECT",
+                                "shape_height": 2.0,
+                                "internal_toggles": {
+                                  "paint_color": 100,
+                                  "shape_height": 10
+                                },
+                                "internal_globals": {
+                                  "paint_color": "cbase",
+                                  "shape_height": "ncbwidth"
+                                },
+                                "internal_formulas": {
+                                  "shape_height": "$gv(ncbwidth)/2$"
+                                }
+                              },
+                              {
+                                "internal_type": "OverlapLayerModule",
+                                "viewgroup_items": [
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap) + gv(ncbwidth)$"
+                                    }
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap)$"
+                                    },
+                                    "paint_mode": "CLEAR"
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 10
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2$",
+                                      "paint_color": "$if(df(d)/10 >= si(mindex, 2)+1, gv(cbase), gv(cnull))$"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "internal_type": "StackLayerModule",
+                            "config_stacking": "HORIZONTAL_CENTER",
+                            "viewgroup_items": [
+                              {
+                                "internal_type": "ShapeModule",
+                                "shape_type": "RECT",
+                                "shape_height": 2.0,
+                                "internal_toggles": {
+                                  "paint_color": 100,
+                                  "shape_height": 10
+                                },
+                                "internal_globals": {
+                                  "paint_color": "cbase",
+                                  "shape_height": "ncbwidth"
+                                },
+                                "internal_formulas": {
+                                  "shape_height": "$gv(ncbwidth)/2$"
+                                }
+                              },
+                              {
+                                "internal_type": "OverlapLayerModule",
+                                "viewgroup_items": [
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap) + gv(ncbwidth)$"
+                                    }
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 100
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2 + gv(ncbgap)$"
+                                    },
+                                    "paint_mode": "CLEAR"
+                                  },
+                                  {
+                                    "internal_type": "ShapeModule",
+                                    "internal_toggles": {
+                                      "shape_width": 10,
+                                      "paint_color": 10
+                                    },
+                                    "internal_globals": {
+                                      "shape_width": "ncsize",
+                                      "paint_color": "cbase"
+                                    },
+                                    "shape_type": "CIRCLE",
+                                    "internal_formulas": {
+                                      "shape_width": "$gv(ncsize)/2$",
+                                      "paint_color": "$if(df(d)/10 >= si(mindex, 2)+1, gv(cbase), gv(cnull))$"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "internal_type": "OverlapLayerModule",
+                "internal_title": "時計",
+                "internal_events": [
+                  {
+                    "type": "SINGLE_TAP",
+                    "action": "LAUNCH_APP",
+                    "music_action": "OPEN_APP",
+                    "intent": "intent:#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;component=com.spotify.music/.MainActivity;S.org.kustom.intent.label=Spotify;end"
+                  }
+                ],
+                "viewgroup_items": [
+                  {
+                    "internal_type": "ShapeModule",
+                    "shape_type": "CIRCLE",
+                    "shape_width": 264.0,
+                    "fx_gradient_color": "#00000000",
+                    "fx_gradient_width": 1,
+                    "fx_gradient_offset": 47,
+                    "internal_title": "マージン",
+                    "paint_color": "#00FFFFFF"
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "internal_title": "秒針",
+                    "internal_toggles": {
+                      "config_rotate_mode": 0
+                    },
+                    "internal_formulas": {
+                      "config_rotate_mode": "CLOCK_MINUTE_SMOOTH"
+                    },
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "CIRCLE",
+                        "shape_width": 234.0,
+                        "fx_gradient_color": "#00000000",
+                        "fx_gradient_width": 1.0,
+                        "fx_gradient_offset": 100,
+                        "internal_title": "秒針",
+                        "internal_toggles": {
+                          "fx_gradient_offset": 10,
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "fx_gradient_offset": "$if(mi(state) = PLAYING, mi(percent), df(s)/60*100)$",
+                          "paint_color": "$if(mi(state) = PLAYING, gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_rotate_mode": "DEG180",
+                        "fx_gradient": "SWEEP",
+                        "internal_globals": {
+                          "paint_color": "cbaset"
+                        }
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "CIRCLE",
+                        "shape_width": 228.0,
+                        "fx_gradient_color": "#00000000",
+                        "fx_gradient_width": 1,
+                        "fx_gradient_offset": 47,
+                        "internal_title": "秒針（クリア）",
+                        "paint_mode": "CLEAR",
+                        "internal_toggles": {
+                          "paint_color": 100
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "internal_title": "文字盤",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "CIRCLE",
+                        "shape_width": 200.0,
+                        "fx_gradient_color": "#00000000",
+                        "fx_gradient_width": 1,
+                        "fx_gradient_offset": 47,
+                        "internal_title": "マスク",
+                        "internal_toggles": {
+                          "paint_color": 100
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase"
+                        },
+                        "fx_mask": "CLIP_ALL"
+                      },
+                      {
+                        "internal_type": "BitmapModule",
+                        "internal_title": "ジャケット",
+                        "internal_toggles": {
+                          "bitmap_bitmap": 10
+                        },
+                        "internal_formulas": {
+                          "bitmap_bitmap": "$mi(cover)$"
+                        },
+                        "bitmap_scale_mode": "CENTER_CROP",
+                        "bitmap_width": 250.0,
+                        "bitmap_height": 250.0,
+                        "bitmap_blur": 50.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_width": 200.0,
+                        "fx_gradient_color": "#00000000",
+                        "fx_gradient_width": 1,
+                        "fx_gradient_offset": 47,
+                        "internal_title": "文字盤",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase"
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(mi(state) = PLAYING, if(mi(cover), #00000000, gv(cbaset)), gv(cbase))$"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "config_rotate_mode": "CLOCK_HOUR_SMOOTH",
+                    "position_padding_bottom": 60.0,
+                    "internal_title": "時針",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "internal_toggles": {
+                          "config_visible": 10
+                        },
+                        "internal_formulas": {
+                          "config_visible": "$if(mi(state) = PLAYING, NEVER, ALWAYS)$ "
+                        },
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "RECT",
+                            "shape_width": 6.0,
+                            "shape_height": 60.0,
+                            "shape_corners": 360,
+                            "paint_mode": "CLEAR",
+                            "internal_toggles": {
+                              "paint_color": 100
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "config_rotate_mode": "CLOCK_MINUTE_SMOOTH",
+                    "position_padding_bottom": 232.0,
+                    "internal_title": "分針",
+                    "internal_toggles": {
+                      "config_visible": 10
+                    },
+                    "internal_formulas": {
+                      "config_visible": "$if(mi(state) = PLAYING, NEVER, ALWAYS)$ "
+                    },
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "CIRCLE",
+                            "shape_width": 30.0,
+                            "shape_corners": 360,
+                            "shape_height": 75.0,
+                            "internal_title": "図形（クリア）",
+                            "paint_mode": "CLEAR",
+                            "internal_toggles": {
+                              "paint_color": 100
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            }
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "CIRCLE",
+                            "shape_width": 18.0,
+                            "shape_corners": 360,
+                            "shape_height": 75.0,
+                            "internal_toggles": {
+                              "paint_color": 100
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "internal_type": "StackLayerModule",
+                "config_stacking": "VERTICAL_CENTER",
+                "config_margin": 6.0,
+                "internal_title": "月・太陽",
+                "viewgroup_items": [
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "internal_title": "太陽",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 100,
+                          "shape_width": 100
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbaset",
+                          "shape_width": "ndaylen"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 300.0,
+                        "shape_height": 4.0,
+                        "shape_corners": 360,
+                        "internal_title": "背景"
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 100,
+                          "shape_width": 10,
+                          "position_padding_left": 10
+                        },
+                        "internal_formulas": {
+                          "shape_width": "$tf(ai(sunset) - ai(sunrise), S) / (24*60*60) * gv(ndaylen)$",
+                          "position_padding_left": "$tf(ai(sunrise) - dp(0h0m0s), S) / (24*60*60) * gv(ndaylen)$"
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase",
+                          "shape_width": "ndaylen"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 300.0,
+                        "shape_height": 4.0,
+                        "shape_corners": 360,
+                        "position_anchor": "CENTERLEFT"
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "internal_title": "現在",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "StackLayerModule",
+                        "internal_title": "目盛り",
+                        "internal_toggles": {
+                          "config_margin": 10
+                        },
+                        "internal_formulas": {
+                          "config_margin": "$gv(ndaylen)/4 - gv(nnowsize)/2$"
+                        },
+                        "config_stacking": "HORIZONTAL_CENTER",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "paint_color": 100,
+                              "shape_width": 10
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(nnowsize)/2$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbaset",
+                              "shape_width": "nnowsize"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 4.0,
+                            "shape_height": 4.0,
+                            "shape_corners": 360
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "paint_color": 100,
+                              "shape_width": 10
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(nnowsize)/2$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbaset",
+                              "shape_width": "nnowsize"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 4.0,
+                            "shape_height": 4.0,
+                            "shape_corners": 360
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "paint_color": 100,
+                              "shape_width": 10
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(nnowsize)/2$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbaset",
+                              "shape_width": "nnowsize"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 4.0,
+                            "shape_height": 4.0,
+                            "shape_corners": 360
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "StackLayerModule",
+                        "config_stacking": "HORIZONTAL_CENTER",
+                        "config_margin": -5.0,
+                        "internal_toggles": {
+                          "config_margin": 10
+                        },
+                        "internal_formulas": {
+                          "config_margin": "$-gv(nnowsize)/2$"
+                        },
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "RECT",
+                            "shape_width": 50.0,
+                            "internal_toggles": {
+                              "shape_width": 10
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$tf(dp() - dp(0h0m0s), S) / (24*60*60) * gv(ndaylen)$"
+                            },
+                            "shape_height": 1.0,
+                            "paint_color": "#00000000",
+                            "internal_title": "マージン（前）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "CIRCLE",
+                            "shape_width": 10.0,
+                            "internal_title": "現在",
+                            "internal_toggles": {
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_globals": {
+                              "shape_width": "nnowsize",
+                              "paint_color": "cbase"
+                            }
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "shape_type": "RECT",
+                            "shape_width": 50.0,
+                            "internal_toggles": {
+                              "shape_width": 10
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$tf(dp(0h0m0sa1d) - dp(), S) / (24*60*60) * gv(ndaylen)$"
+                            },
+                            "shape_height": 1.0,
+                            "paint_color": "#00000000",
+                            "internal_title": "マージン（後）"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "OverlapLayerModule",
+                    "internal_title": "月",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 100,
+                          "shape_width": 100
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbaset",
+                          "shape_width": "ndaylen"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 300.0,
+                        "shape_height": 4.0,
+                        "shape_corners": 360,
+                        "internal_title": "背景"
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10,
+                          "shape_width": 10,
+                          "position_padding_left": 10
+                        },
+                        "internal_formulas": {
+                          "shape_width": "$if(ai(moonset) > ai(moonrise), tf(ai(moonset) - ai(moonrise), S) / (24*60*60) * gv(ndaylen), tf(dp(0h0m0sa1d) - ai(moonrise), S) / (24*60*60) * gv(ndaylen))$",
+                          "position_padding_left": "$tf(ai(moonrise) - dp(0h0m0s), S) / (24*60*60) * gv(ndaylen)$",
+                          "paint_color": "$if(ai(moonset) > ai(moonrise), gv(cbase), gv(cnull))$"
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase",
+                          "shape_width": "ndaylen"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 300.0,
+                        "shape_height": 4.0,
+                        "shape_corners": 360,
+                        "position_anchor": "CENTERLEFT",
+                        "internal_title": "月（後半）"
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10,
+                          "shape_width": 10,
+                          "position_padding_left": 0
+                        },
+                        "internal_formulas": {
+                          "shape_width": "$if(ai(moonset) > ai(moonrise), 0, tf(ai(moonset) - dp(0h0m0s), S) / (24*60*60) * gv(ndaylen))$",
+                          "position_padding_left": "$tf(ai(moonrise) - dp(0h0m0s), M) / (24*60) * gv(ndaylen)$",
+                          "paint_color": "$if(ai(moonset) > ai(moonrise), gv(cnull), gv(cbase))$"
+                        },
+                        "internal_globals": {
+                          "paint_color": "cbase",
+                          "shape_width": "ndaylen"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 300.0,
+                        "shape_height": 4.0,
+                        "shape_corners": 360,
+                        "position_anchor": "CENTERLEFT",
+                        "internal_title": "月（前半）"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "internal_type": "StackLayerModule",
+                "config_stacking": "VERTICAL_CENTER",
+                "config_margin": 40.0,
+                "internal_title": "各種メーター",
+                "viewgroup_items": [
+                  {
+                    "internal_type": "StackLayerModule",
+                    "internal_title": "バッテリー",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "config_margin": 40.0,
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(ttimer) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tbatmax) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（過去）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (bi(level) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(ttimer) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tbatmax) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（過去）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (bi(level) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(ttimer) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tbatmax) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（過去）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (bi(level) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(ttimer) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tbatmax) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー（過去）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (bi(level) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "バッテリー"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "config_margin": 40.0,
+                    "internal_title": "通信量",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdater) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatarh) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（一週間前）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatar) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdater) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatarh) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（一週間前）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatar) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdater) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatarh) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（一週間前）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatar) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdater) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（消費ガイド）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatarh) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量（一週間前）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (100 - gv(tdatar) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "通信量"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "config_margin": 40.0,
+                    "internal_title": "ストレージ",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tstrgr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "ストレージ"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "config_margin": 40.0,
+                    "internal_title": "メモリ",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ"
+                          }
+                        ]
+                      },
+                      {
+                        "internal_type": "OverlapLayerModule",
+                        "viewgroup_items": [
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 10,
+                              "paint_color": 100,
+                              "fx_gradient_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$",
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)+gv(ncbwidth)$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "csize",
+                              "paint_color": "cbase",
+                              "fx_gradient_color": "cbaset"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 60.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ（合計）"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_title": "マスク",
+                            "internal_toggles": {
+                              "shape_width": 10,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "shape_width": "$gv(ncsize)+gv(ncbgap)$"
+                            },
+                            "internal_globals": {
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "paint_mode": "CLEAR"
+                          },
+                          {
+                            "internal_type": "ShapeModule",
+                            "internal_toggles": {
+                              "fx_gradient_offset": 10,
+                              "shape_width": 100,
+                              "paint_color": 100
+                            },
+                            "internal_formulas": {
+                              "fx_gradient_offset": "$mu(max, 0, mu(min, 100, (gv(tmemr) - 100 * (si(mindex, 1) / si(mcount, 1))) * si(mcount, 1)))$"
+                            },
+                            "internal_globals": {
+                              "shape_width": "ncsize",
+                              "paint_color": "cbase"
+                            },
+                            "shape_type": "CIRCLE",
+                            "shape_width": 80.0,
+                            "shape_rotate_mode": "DEG180",
+                            "fx_gradient": "SWEEP",
+                            "fx_gradient_color": "#00000000",
+                            "fx_gradient_width": 1.0,
+                            "internal_title": "メモリ"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "internal_type": "StackLayerModule",
+                "internal_title": "IP アドレス",
+                "config_margin": 16.0,
+                "position_anchor": "CENTERLEFT",
+                "position_offset_x": -2.0,
+                "config_stacking": "HORIZONTAL_CENTER",
+                "viewgroup_items": [
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_margin": 4.0,
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_margin": 4.0,
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_margin": 4.0,
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      }
+                    ]
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_margin": 4.0,
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$if(gv(tipbit), gv(cbase), gv(cbaset))$"
+                        },
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_height": 40.0,
+                        "shape_corners": 360
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "internal_type": "StackLayerModule",
+                "config_stacking": "VERTICAL_CENTER",
+                "config_margin": 4.0,
+                "internal_title": "イヤホン",
+                "viewgroup_items": [
+                  {
+                    "internal_type": "ShapeModule",
+                    "internal_toggles": {
+                      "fx_gradient_color": 100,
+                      "fx_gradient_offset": 10,
+                      "paint_color": 100
+                    },
+                    "internal_formulas": {
+                      "fx_gradient_color": "$ce(gv(cbase), alpha, 20)$",
+                      "fx_gradient_offset": "$mi(vol)$",
+                      "paint_color": "$if(mi(state)=PLAYING, gv(cbase), gv(cbaset))$"
+                    },
+                    "internal_globals": {
+                      "fx_gradient_color": "cbaset",
+                      "paint_color": "cbase"
+                    },
+                    "shape_type": "RECT",
+                    "shape_width": 78.0,
+                    "shape_height": 4.0,
+                    "shape_corners": 4.0,
+                    "fx_gradient": "HORIZONTAL",
+                    "fx_gradient_width": 1,
+                    "internal_title": "音量"
+                  },
+                  {
+                    "internal_type": "StackLayerModule",
+                    "config_stacking": "HORIZONTAL_CENTER",
+                    "config_margin": 4.0,
+                    "internal_title": "イヤホンバッテリー",
+                    "viewgroup_items": [
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      },
+                      {
+                        "internal_type": "ShapeModule",
+                        "shape_type": "RECT",
+                        "shape_width": 4.0,
+                        "shape_corners": 360,
+                        "internal_toggles": {
+                          "paint_color": 10
+                        },
+                        "internal_formulas": {
+                          "paint_color": "$ if(nc(abatt, 0), if(nc(abatt, 0)>=(si(mindex, 0)+1)/si(mcount, 0)*100, gv(cbase), gv(cbaset)), gv(cbaset))$"
+                        },
+                        "shape_height": 4.0
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "internal_type": "ShapeModule",
+            "internal_toggles": {
+              "shape_width": 10,
+              "shape_height": 10,
+              "paint_color": 100,
+              "fx_gradient_color": 100
+            },
+            "internal_formulas": {
+              "shape_width": "$si(rwidth)$",
+              "shape_height": "$si(rheight)$"
+            },
+            "shape_type": "RECT",
+            "paint_mode": "MULTIPLY",
+            "fx_gradient": "VERTICAL",
+            "fx_gradient_color": "#FF999BA8",
+            "fx_gradient_width": 50.0,
+            "fx_gradient_offset_y": 100,
+            "internal_title": "グラデーション着色",
+            "internal_globals": {
+              "paint_color": "ctop",
+              "fx_gradient_color": "cbottom"
+            }
+          }
+        ]
+      },
+      {
+        "internal_type": "OverlapLayerModule",
+        "internal_title": "充電中",
+        "internal_toggles": {
+          "config_visible": 10
+        },
+        "internal_formulas": {
+          "config_visible": "$if(bi(charging), ALWAYS, REMOVE)$"
+        },
+        "position_anchor": "BOTTOM",
+        "internal_animations": [
+          {
+            "type": "LOOP_FW",
+            "action": "ADVANCED",
+            "animator": [
+              {
+                "position": 0,
+                "value": 0.0,
+                "property": "OPACITY",
+                "ease": "STRAIGHT"
+              },
+              {
+                "position": 95,
+                "value": 100.0,
+                "property": "OPACITY",
+                "ease": "STRAIGHT"
+              },
+              {
+                "position": 100,
+                "value": 1.0,
+                "property": "OPACITY",
+                "ease": "STRAIGHT"
+              }
+            ],
+            "duration": 40.0,
+            "amount": 100,
+            "internal_toggles": {
+              "duration": 10
+            },
+            "internal_formulas": {
+              "duration": "$if(bi(fast), gv(nbatint)/2, gv(nbatint))$"
+            }
+          }
+        ],
+        "viewgroup_items": [
+          {
+            "internal_type": "ShapeModule",
+            "internal_toggles": {
+              "fx_gradient_color": 100,
+              "paint_color": 100
+            },
+            "internal_globals": {
+              "fx_gradient_color": "cnull",
+              "paint_color": "cbase"
+            },
+            "shape_type": "RECT",
+            "shape_width": 126.0,
+            "shape_height": 4.0,
+            "shape_corners": 360,
+            "position_padding_bottom": 25.0
+          }
+        ]
+      }
+    ]
+  }
+}
