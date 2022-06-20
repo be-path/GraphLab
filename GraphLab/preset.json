@@ -21,21 +21,21 @@
     },
     "globals_list": {
       "tbatmax": {
-        "index": 14,
+        "index": 13,
         "type": "TEXT",
         "title": "tBatMax",
         "value": "$mu(max, bi(level, r0m), bi(level, r5m), bi(level, r10m), bi(level, r10m), bi(level, r15m), bi(level, r20m), bi(level, r25m), bi(level, r30m), bi(level, r35m), bi(level, r40m), bi(level, r45m), bi(level, r50m), bi(level, r55m), bi(level, r60m))$",
         "toggles": 1
       },
       "tdaynum": {
-        "index": 15,
+        "index": 14,
         "type": "TEXT",
         "title": "tDayNum",
         "value": "$if(df(M)=2&(df(y)%4=0&df(y)%100!=0|df(y)%400=0),29,df(M)=2,28,df(M)=4|df(M)=6|df(M)=9|df(M)=11,30,31)$",
         "toggles": 1
       },
       "ncsize": {
-        "index": 9,
+        "index": 8,
         "type": "NUMBER",
         "title": "nCSize",
         "value": 30.0,
@@ -44,7 +44,7 @@
         "toggles": 1
       },
       "ncbwidth": {
-        "index": 10,
+        "index": 9,
         "type": "NUMBER",
         "title": "nCBWidth",
         "value": 4.0,
@@ -53,7 +53,7 @@
         "toggles": 1
       },
       "ncbgap": {
-        "index": 11,
+        "index": 10,
         "type": "NUMBER",
         "title": "nCBGap",
         "value": 4.0,
@@ -65,66 +65,66 @@
         "index": 5,
         "type": "COLOR",
         "title": "cBase",
-        "description": "ベース色"
+        "value": "#FFFFFFFF"
       },
       "cback": {
         "index": 6,
         "type": "COLOR",
         "title": "cBack",
-        "description": "背景色"
+        "value": "#FF333333"
       },
       "ndatamax": {
         "index": 7,
         "type": "NUMBER",
         "title": "nDataMax",
-        "description": "月々の通信量上限 (GB)",
         "min": 1,
-        "max": 1000
+        "max": 1000,
+        "value": 20.0
       },
       "tdatar": {
-        "index": 17,
+        "index": 16,
         "type": "TEXT",
         "title": "tDataR",
         "value": "$ts(mt, m, 1d)/gv(ndatamax)/1000*100$",
         "toggles": 1
       },
       "tdater": {
-        "index": 18,
+        "index": 17,
         "type": "TEXT",
         "title": "tDateR",
         "value": "$df(d)/gv(tdaynum)*100$",
         "toggles": 1
       },
       "tmemr": {
-        "index": 20,
+        "index": 19,
         "type": "TEXT",
         "title": "tMemR",
         "value": "$rm(mfree) / rm(mtot) * 100$",
         "toggles": 1
       },
       "tstrgr": {
-        "index": 21,
+        "index": 20,
         "type": "TEXT",
         "title": "tStrgR",
         "value": "$rm(fsfree, int) / rm(fstot, int) * 100$",
         "toggles": 1
       },
       "cbaset": {
-        "index": 16,
+        "index": 15,
         "type": "COLOR",
         "title": "cBaseT",
         "global_formula": "$ce(gv(cbase),alpha, 15)$",
         "toggles": 11
       },
       "tipbit": {
-        "index": 22,
+        "index": 21,
         "type": "TEXT",
         "title": "tIPBit",
         "value": "$mu(floor, tc(split, nc(ifip), \".\", si(mindex, 1))/mu(pow, 2, si(mcount) - si(mindex) - 1))%2$",
         "toggles": 1
       },
       "ndaylen": {
-        "index": 12,
+        "index": 11,
         "type": "NUMBER",
         "title": "nDayLen",
         "value": 280.0,
@@ -133,7 +133,7 @@
         "toggles": 1
       },
       "nnowsize": {
-        "index": 13,
+        "index": 12,
         "type": "NUMBER",
         "title": "nNowSize",
         "value": 8.0,
@@ -142,21 +142,21 @@
         "toggles": 1
       },
       "ttimer": {
-        "index": 19,
+        "index": 18,
         "type": "TEXT",
         "title": "tTimeR",
         "value": "$(1-(df(h)*60*60+df(m)*60+df(s))/(24*60*60))*100$",
         "toggles": 1
       },
       "tdatarh": {
-        "index": 23,
+        "index": 22,
         "type": "TEXT",
         "title": "tDataRH",
         "value": "$(ts(mt, m, 1d) - ts(mt, m, r1w))/gv(ndatamax)/1000*100$",
         "toggles": 1
       },
       "cnull": {
-        "index": 24,
+        "index": 23,
         "type": "COLOR",
         "title": "cNull",
         "value": "#00000000",
@@ -166,21 +166,21 @@
         "index": 1,
         "type": "COLOR",
         "title": "cTop",
-        "description": "全体のグラデーション色（上側）"
+        "value": "#FFFFFFFF"
       },
       "cbottom": {
         "index": 2,
         "type": "COLOR",
         "title": "cBottom",
-        "description": "全体のグラデーション色（下側）"
+        "value": "#FFFFFFFF"
       },
       "nbatint": {
-        "index": 8,
+        "index": 24,
         "type": "NUMBER",
         "title": "nBatInt",
-        "description": "バッテリー充電中インジケーターの点滅時間間隔",
         "min": 1,
-        "max": 1000
+        "max": 1000,
+        "value": 40.0
       }
     },
     "viewgroup_items": [
@@ -206,6 +206,13 @@
                 },
                 "config_rotate_mode": "MANUAL",
                 "config_rotate_offset": 45.0,
+                "internal_events": [
+                  {
+                    "type": "SINGLE_TAP",
+                    "action": "KUSTOM_ACTION",
+                    "kustom_action": "NOTIF_OPEN"
+                  }
+                ],
                 "viewgroup_items": [
                   {
                     "internal_type": "ShapeModule",
@@ -526,7 +533,7 @@
                                 },
                                 "internal_formulas": {
                                   "shape_width": "$gv(ncbwidth)*4$",
-                                  "paint_color": "$if((df(f) = 7) | (df(f) = 1), gv(cbase), gv(cnull))$",
+                                  "paint_color": "$if(df(f) = 7, gv(cbase), gv(cnull))$",
                                   "shape_height": "$gv(ncbwidth)/2$"
                                 },
                                 "internal_globals": {
@@ -1280,9 +1287,9 @@
                           "position_padding_left": 10
                         },
                         "internal_formulas": {
-                          "shape_width": "$if(ai(moonset) > ai(moonrise), tf(ai(moonset) - ai(moonrise), S) / (24*60*60) * gv(ndaylen), tf(dp(0h0m0sa1d) - ai(moonrise), S) / (24*60*60) * gv(ndaylen))$",
+                          "shape_width": "$if(ai(moonset) > ai(moonrise), tf(ai(moonset) - ai(moonrise), S) / (24*60*60) * gv(ndaylen), mu(max, 0, tf(dp(0h0m0sa1d) - ai(moonrise), S) / (24*60*60) * gv(ndaylen)))$",
                           "position_padding_left": "$tf(ai(moonrise) - dp(0h0m0s), S) / (24*60*60) * gv(ndaylen)$",
-                          "paint_color": "$if(ai(moonset) > ai(moonrise), gv(cbase), gv(cnull))$"
+                          "paint_color": "$if(dp(0h0m0sa1d) > ai(moonrise), gv(cbase), gv(cnull))$"
                         },
                         "internal_globals": {
                           "paint_color": "cbase",
